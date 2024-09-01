@@ -2,29 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MathJax CSS Injection PoC</title>
-    <!-- Load MathJax library -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>CSS Injection via SVG</title>
     <style>
-        /* Style to show the effect clearly */
         body {
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            overflow: hidden;
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 <body>
-    <p>Demonstrating CSS Injection via MathJax:</p>
-    <div id="mathjax-container">
-        $$\unicode[STIXGeneral; color:red; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-image: url('https://via.placeholder.com/150/FF0000/FFFFFF?text=Injected+Image');]{x0000}$$
-    </div>
-
-    <script>
-        // Render the MathJax content
-        MathJax.typesetPromise().then(() => {
-            console.log('MathJax rendering complete');
-        }).catch((err) => console.log('MathJax rendering error:', err));
-    </script>
+    <h1>Testing CSS Injection via SVG</h1>
+    <img src="injected.svg" alt="Injected SVG">
 </body>
 </html>
